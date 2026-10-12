@@ -547,7 +547,7 @@ main{position:relative;z-index:1}
 .ready{margin-top:30px;box-shadow:var(--shadow-lg);border:1px solid rgba(14,156,131,.35);border-radius:22px;background:var(--surface);padding:clamp(18px,3vw,28px);display:grid;gap:16px}
 .ready pre{margin:0;white-space:pre-wrap;font-family:var(--mono);font-size:13px;color:var(--muted);background:#F7F8FC;border:1px solid var(--line);border-radius:14px;padding:14px;max-height:260px;overflow:auto}
 .ready .acts{display:flex;gap:10px;flex-wrap:wrap}
-.channels{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:clamp(36px,4.5vw,56px)}
+.channels{display:grid;grid-template-columns:minmax(0,560px);gap:12px;margin-top:clamp(36px,4.5vw,56px)}
 .chan{border:1px solid rgba(255,255,255,.95);box-shadow:var(--shadow);border-radius:18px;padding:20px 22px;display:flex;justify-content:space-between;align-items:center;gap:14px;text-decoration:none;transition:border-color .25s;background:var(--bg2)}
 .chan:hover{border-color:var(--mint)}
 .chan .mono{color:var(--dim);display:block;margin-bottom:4px}
@@ -557,6 +557,12 @@ main{position:relative;z-index:1}
 @media (max-width:700px){.channels{grid-template-columns:1fr}.madlib{line-height:1.9}}
 footer{border-top:1px solid var(--line);padding-block:30px 40px;color:var(--dim);font-size:14px}
 footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer a{color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line2)}footer a:hover{color:var(--mint);border-color:var(--mint)}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.form-note{margin-top:14px;color:var(--dim);font-size:13.5px}.form-note a{color:var(--muted);text-decoration-color:var(--line2);text-underline-offset:3px}.form-note a:hover{color:var(--mint)}
+.ready-h{font-family:var(--display);font-size:clamp(20px,2vw,26px);font-weight:600;letter-spacing:-.02em;color:var(--text)}
+.ready{gap:8px}
+#cSubmit[disabled]{opacity:.7;cursor:progress}
 .toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:#1E2235;color:#fff;padding:10px 18px;border-radius:999px;font-size:14px;opacity:0;transition:all .3s;z-index:300;pointer-events:none}
 .toast.on{opacity:1;transform:translate(-50%,0)}
 
@@ -1065,24 +1071,22 @@ h3{font-size:clamp(17px,1.4vw,20px)}
         We're struggling with <span class="fld"><textarea aria-label="Process you're struggling with" id="f-process" name="process" rows="1" placeholder="the process, e.g. vendor bill approvals" style="--w:22ch"></textarea></span>.
         Today we manage it with <span class="fld"><textarea aria-label="How you manage it today" id="f-today" name="today" rows="1" placeholder="Excel, WhatsApp, email…" style="--w:16ch"></textarea></span>,
         and we'd like to <span class="fld"><textarea aria-label="What you'd like to improve" id="f-goal" name="goal" rows="1" placeholder="cut approval time in half" style="--w:20ch"></textarea></span>.
-        You can reach me at <span class="fld"><input aria-label="Email" id="f-email" name="email" type="email" placeholder="you@company.com" autocomplete="email" style="--w:16ch"></span>.
+        You can reach me at <span class="fld"><input aria-label="Email" id="f-email" name="email" type="email" placeholder="you@company.com" autocomplete="email" style="--w:16ch"></span>
+        or on <span class="fld"><input aria-label="Phone number" id="f-phone" name="phone" type="tel" inputmode="tel" placeholder="+91 98xxx xxxxx" autocomplete="tel" style="--w:14ch"></span>.
       </div>
+      <div class="hp" aria-hidden="true"><label>Leave this empty <input name="website" tabindex="-1" autocomplete="off"></label></div>
       <div class="form-row">
-        <button class="btn primary magnetic" type="submit">Start the Conversation <span class="arr">→</span></button>
+        <button class="btn primary magnetic" type="submit" id="cSubmit">Start the Conversation <span class="arr">→</span></button>
         <span class="form-msg" id="formMsg" role="alert"></span>
       </div>
+      <p class="form-note">Your details are only used to reply to you. See the <a href="privacy.html">privacy policy</a>.</p>
     </form>
-    <div class="ready" id="ready" hidden>
-      <div><p class="mono mint">Your message is ready</p><p style="margin-top:8px;color:var(--muted)">Send it by email, or paste it into a LinkedIn message. I usually reply within a working day.</p></div>
-      <pre id="readyText"></pre>
-      <div class="acts">
-        <button class="btn primary sm" type="button" id="copyMsg">Copy message</button>
-        <a class="btn ghost sm" id="mailMsg" href="mailto:atulnaikofficial@gmail.com">Open in email app</a>
-        <a class="btn ghost sm" href="https://www.linkedin.com/in/naikatul" target="_blank" rel="noopener">Message on LinkedIn ↗</a>
-      </div>
+    <div class="ready" id="ready" hidden tabindex="-1">
+      <p class="mono mint">Message received</p>
+      <p class="ready-h" id="readyH">Thanks. Your message has reached me.</p>
+      <p style="color:var(--muted)">I usually reply within a working day, by email or phone.</p>
     </div>
     <div class="channels">
-      <div class="chan"><div><span class="mono">Email</span><b id="emailText">atulnaikofficial@gmail.com</b></div><button type="button" id="copyEmail">Copy</button></div>
       <a class="chan" href="https://www.linkedin.com/in/naikatul" target="_blank" rel="noopener"><div><span class="mono">LinkedIn</span><b>linkedin.com/in/naikatul</b></div><span aria-hidden="true">↗</span></a>
     </div>
   </div>
@@ -1090,7 +1094,7 @@ h3{font-size:clamp(17px,1.4vw,20px)}
 </main>
 
 <footer>
-  <div class="wrap"><span>© 2026 Atul Naik · Operations × Automation · <span class="sk">योगः कर्मसु कौशलम्</span> <span style="color:var(--dim)">(excellence in action)</span></span><span>This site follows the same rule as the tools: understand, simplify, build.</span></div>
+  <div class="wrap"><span>© 2026 Atul Naik · Operations × Automation · <span class="sk">योगः कर्मसु कौशलम्</span> <span style="color:var(--dim)">(excellence in action)</span></span><span>This site follows the same rule as the tools: understand, simplify, build. · <a href="privacy.html">Privacy policy</a></span></div>
 </footer>
 
 <div class="modal" id="modal" hidden role="dialog" aria-modal="true" aria-labelledby="mTitle">
@@ -1304,7 +1308,6 @@ function copy(text,okMsg,selectEl){
   const fallback=()=>{if(selectEl){const r=document.createRange();r.selectNodeContents(selectEl);const s=getSelection();s.removeAllRanges();s.addRange(r);toast("Selected. Press Ctrl/Cmd + C to copy");}};
   try{navigator.clipboard.writeText(text).then(()=>toast(okMsg),fallback);}catch(e){fallback();}
 }
-$("#copyEmail").addEventListener("click",()=>copy("atulnaikofficial@gmail.com","Email address copied",$("#emailText")));
 
 /* =================== MODAL + VIZ =================== */
 const tip=$("#tip");
@@ -1563,18 +1566,28 @@ knob.addEventListener("keydown",e=>{const cur=parseFloat(getComputedStyle(ba).ge
 function autosize(t){t.style.width="";const s=getComputedStyle(t);t.style.height="auto";t.style.height=t.scrollHeight+"px";}
 $$(".madlib textarea").forEach(t=>{t.addEventListener("input",()=>autosize(t));});
 $$(".madlib input,.madlib textarea").forEach(el=>el.addEventListener("input",()=>{el.closest(".fld").classList.remove("err");const len=Math.max(el.placeholder.length*0.9,el.value.length+1);if(el.tagName==="INPUT")el.style.setProperty("--w",Math.min(28,Math.max(8,len))+"ch");}));
-$("#cform").addEventListener("submit",e=>{
-  e.preventDefault();const f=Object.fromEntries(new FormData(e.target).entries());let bad=[];
-  ["name","process","email"].forEach(k=>{if(!String(f[k]||"").trim())bad.push(k);});
-  if(f.email&&!/^\S+@\S+\.\S+$/.test(f.email))bad.push("email");
+/* Google Apps Script web app that saves to the "AN - Portfolio Form Responses" sheet (see apps-script/Code.gs) */
+const FORM_ENDPOINT="";
+$("#cform").addEventListener("submit",async e=>{
+  e.preventDefault();const form=e.target,f=Object.fromEntries(new FormData(form).entries());let bad=[];
+  ["name","process","email","phone"].forEach(k=>{if(!String(f[k]||"").trim())bad.push(k);});
+  if(f.email&&!/^\S+@\S+\.\S+$/.test(f.email.trim()))bad.push("email");
+  if(f.phone&&!/^\+?[\d\s()-]{7,20}$/.test(f.phone.trim()))bad.push("phone");
   $$(".fld").forEach(x=>x.classList.remove("err"));bad.forEach(k=>$(`[name="${k}"]`).closest(".fld").classList.add("err"));
-  if(bad.length){$("#formMsg").textContent="Please add your name, the process, and a valid email so I can reply.";return;}
+  if(bad.length){$("#formMsg").textContent="Please add your name, the process, a valid email and a phone number so I can reply.";return;}
   $("#formMsg").textContent="";
-  const body=`Hi Atul,\n\nI'm ${f.name.trim()}${f.company.trim()?` from ${f.company.trim()}`:""}.\n\nWhat we're struggling with: ${f.process.trim()}\nHow we manage it today: ${f.today.trim()||"-"}\nWhat we'd like to improve: ${f.goal.trim()||"-"}\n\nYou can reach me at ${f.email.trim()}.`;
-  $("#readyText").textContent=body;
-  $("#mailMsg").href=`mailto:atulnaikofficial@gmail.com?subject=${encodeURIComponent("Let's simplify: "+f.process.trim().slice(0,60))}&body=${encodeURIComponent(body)}`;
-  const r=$("#ready");r.hidden=false;if(G&&!reduce)G.from(r,{y:20,opacity:0,duration:.5});r.scrollIntoView({behavior:reduce?"auto":"smooth",block:"nearest"});
-  $("#copyMsg").onclick=()=>copy(body,"Message copied. Paste it into email or LinkedIn",$("#readyText"));
+  const btn=$("#cSubmit"),label=btn.innerHTML;btn.disabled=true;btn.textContent="Sending…";
+  try{
+    const res=await fetch(FORM_ENDPOINT,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify({...f,page:location.href})});
+    const out=await res.json();if(!out.ok)throw new Error(out.error||"failed");
+  }catch(err){
+    btn.disabled=false;btn.innerHTML=label;
+    $("#formMsg").innerHTML='Sorry, that didn\'t go through. Please try again, or <a href="https://www.linkedin.com/in/naikatul" target="_blank" rel="noopener">message me on LinkedIn</a>.';
+    return;
+  }
+  form.hidden=true;$("#readyH").textContent=`Thanks, ${f.name.trim().split(/\s+/)[0]}. Your message has reached me.`;
+  const r=$("#ready");r.hidden=false;if(G&&!reduce)G.from(r,{y:20,opacity:0,duration:.5});r.focus({preventScroll:true});r.scrollIntoView({behavior:reduce?"auto":"smooth",block:"center"});
+  if(motion)ST.refresh();
 });
 
 /* =================== SCROLL-DRIVEN STATE (works with or without GSAP) =================== */
