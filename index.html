@@ -1,4 +1,4 @@
-<!doctype html><html><head><meta charset="utf-8">
+<!doctype html><html lang="en"><head><meta charset="utf-8">
 <title>Atul Naik · Process Automation</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230F1B2D'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='28' font-weight='700' fill='%23F5A623' text-anchor='middle'%3EAN%3C/text%3E%3C/svg%3E">
 <meta property="og:title" content="Atul Naik · I turn messy business processes into simple digital tools">
@@ -552,6 +552,8 @@ main{position:relative;z-index:1}
 .chan:hover{border-color:var(--mint)}
 .chan .mono{color:var(--dim);display:block;margin-bottom:4px}
 .chan b{font-weight:500;font-size:17px;word-break:break-all}
+.chan-id{display:flex;align-items:center;gap:14px;min-width:0}
+.li-ico{width:36px;height:36px;flex:none;border-radius:8px}
 .chan button{background:none;border:1px solid var(--line2);border-radius:999px;padding:8px 14px;font-size:13px;flex:none}
 .chan button:hover{border-color:var(--mint);color:var(--mint)}
 @media (max-width:700px){.channels{grid-template-columns:1fr}.madlib{line-height:1.9}}
@@ -622,6 +624,20 @@ h3{font-size:clamp(17px,1.4vw,20px)}
 .navlinks a:not(.btn):hover{background:rgba(255,255,255,.92);border-color:rgba(255,255,255,.95);box-shadow:0 1px 0 #fff inset,0 10px 24px -10px rgba(79,70,229,.38),0 2px 6px -2px rgba(31,41,90,.10);transform:translateY(-1px);color:var(--text)}
 .navlinks a.on:not(.btn){color:var(--indigo)}
 .navlinks .btn{margin-left:8px;transition:box-shadow .25s,filter .25s}
+.menu-btn{display:none;width:42px;height:42px;border-radius:50%;border:1px solid var(--line2);background:rgba(255,255,255,.85);box-shadow:var(--shadow);margin-left:8px;position:relative;flex:none}
+.menu-btn span{position:absolute;left:13px;right:13px;height:1.5px;border-radius:2px;background:var(--text);transition:transform .25s,top .25s}
+.menu-btn span:first-child{top:16px}.menu-btn span:last-child{top:24px}
+.menu-btn[aria-expanded="true"] span:first-child{top:20px;transform:rotate(45deg)}
+.menu-btn[aria-expanded="true"] span:last-child{top:20px;transform:rotate(-45deg)}
+.m-menu{display:none}
+@media (max-width:760px){
+  .menu-btn{display:block}
+  .m-menu{display:grid;gap:4px;margin:0 var(--gut) 12px;padding:8px;border-radius:18px;background:rgba(255,255,255,.96);border:1px solid rgba(255,255,255,.95);box-shadow:var(--shadow-lg)}
+  .m-menu[hidden]{display:none}
+  .m-menu a{display:block;padding:14px 16px;border-radius:12px;text-decoration:none;font-size:17px;font-weight:500;color:var(--text)}
+  .m-menu a:active,.m-menu a.on{background:var(--indigo-d);color:var(--indigo)}
+  .nav.menu-open{background:rgba(255,255,255,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
+}
 .navlinks .btn:hover{box-shadow:0 1px 0 rgba(255,255,255,.35) inset,0 14px 30px -8px rgba(79,70,229,.75),0 0 0 4px rgba(79,70,229,.12)}
 
 /* fit pinned sections on short screens */
@@ -727,7 +743,13 @@ h3{font-size:clamp(17px,1.4vw,20px)}
       <a href="#approach" data-nav="approach">Approach</a>
       <a href="#about" data-nav="about">About</a>
       <a class="btn sm primary magnetic" href="#contact">Let's talk <span class="arr">→</span></a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mMenu" aria-label="Open menu"><span></span><span></span></button>
     </nav>
+  </div>
+  <div class="m-menu" id="mMenu" hidden>
+    <a href="#work" data-nav="work">Work</a>
+    <a href="#approach" data-nav="approach">Approach</a>
+    <a href="#about" data-nav="about">About</a>
   </div>
 </header>
 
@@ -946,7 +968,7 @@ h3{font-size:clamp(17px,1.4vw,20px)}
       <div class="lg"><div class="v">~<span data-count="400">400</span></div><p>Agreements generated from one sheet</p><span class="src mono">Agreement automation</span></div>
       <div class="lg"><div class="v">2h<small> → </small>&lt;1m</div><p>Per agreement, drafting to PDF</p><span class="src mono">Agreement automation</span></div>
       <div class="lg"><div class="v"><span data-count="15">15</span>d<small> → </small>≤7d</div><p>Petty cash reimbursement cycle</p><span class="src mono">Facilities management system</span></div>
-      <div class="lg"><div class="v"><span data-count="25">25</span><small>+</small></div><p>Reports designed for SLA and service KPIs</p><span class="src mono">Ticketing &amp; SLA</span></div>
+      <div class="lg"><div class="v"><span data-count="25">25</span><small>+</small></div><p>Live reports on SLA and service KPIs</p><span class="src mono">Ticketing &amp; SLA</span></div>
     </div>
   </div>
 </section>
@@ -1087,7 +1109,7 @@ h3{font-size:clamp(17px,1.4vw,20px)}
       <p style="color:var(--muted)">I usually reply within a working day, by email or phone.</p>
     </div>
     <div class="channels">
-      <a class="chan" href="https://www.linkedin.com/in/naikatul" target="_blank" rel="noopener"><div><span class="mono">LinkedIn</span><b>linkedin.com/in/naikatul</b></div><span aria-hidden="true">↗</span></a>
+      <a class="chan" href="https://www.linkedin.com/in/naikatul" target="_blank" rel="noopener"><div class="chan-id"><svg class="li-ico" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="5" fill="#0A66C2"/><path fill="#fff" d="M7.1 9.6h2.3v7.5H7.1zM8.25 5.9a1.33 1.33 0 1 1 0 2.66 1.33 1.33 0 0 1 0-2.66zM10.9 9.6h2.2v1h.03c.31-.58 1.06-1.2 2.18-1.2 2.33 0 2.76 1.53 2.76 3.53v4.17h-2.3v-3.7c0-.88-.02-2.02-1.23-2.02-1.23 0-1.42.96-1.42 1.95v3.77h-2.3z"/></svg><div><span class="mono">LinkedIn</span><b>linkedin.com/in/naikatul</b></div></div><span aria-hidden="true">↗</span></a>
     </div>
   </div>
 </section>
@@ -1189,7 +1211,7 @@ const PROJECTS=[
   old:["Export expenses, salary and budgets separately","Reshape 12 monthly budget columns by hand","Match cost heads across files","Rebuild the same pivot every month","Numbers differ by who built them"],
   built:"A reporting layer in Zoho Analytics. One query unifies actual expenses, salary and 12 monthly budget blocks across five cost groups. An unpivoted budget table makes any month comparable. Dashboards sit on top of it.",
   how:[["Source data","Platform database: expenses, salary, budgets."],["Unify","A 14-block query joins actuals, salary and monthly budgets."],["Unpivot","Budget months turned into rows so any period compares cleanly."],["Group","Manpower, Shared Resources, Facility Maintenance, Utilities, Management Fee."],["Dashboards","CEO view, budget vs actual, cost groups, site scorecard, manpower, collections."]],
-  results:[["1","query layer every report reads from"],["5","cost groups tracked per site, per month"],["6","dashboards planned on the same layer"]],
+  results:[["1","query layer every report reads from"],["5","cost groups tracked per site, per month"],["6","dashboards live on the same layer"]],
   tools:["Zoho Analytics","SQL query tables","MySQL"],viz:"fin"},
  {id:"sal",title:"Salary Data Cleaning Tool",status:"live",short:"Raw monthly salary sheets, cleaned and mapped for upload in one run.",
   role:"Designed and built",
@@ -1217,9 +1239,9 @@ const PROJECTS=[
   flow:["Ticket raised","Assigned","SLA clock","Escalation","Resolved","Reported"],
   problem:"Homeowner and customer requests came in by phone, email and WhatsApp. Nobody could say how many were open, who owned them or how long they had waited.",
   old:["Requests land in personal phones and inboxes","Forwarded to whoever might know","No clock on response time","Escalation only after a complaint","Monthly report compiled by hand"],
-  built:"Ticketing on Zoho Desk with an analytics layer in Zoho Analytics: a five-dashboard blueprint with 25+ reports on volume, agent efficiency, SLA compliance and turnaround time, plus alert flows for SLA breaches and escalations. Backed by a CRM training handbook and service SOPs.",
+  built:"Ticketing on Zoho Desk with an analytics layer in Zoho Analytics: five dashboards with 25+ reports on volume, agent efficiency, SLA compliance and turnaround time, plus live alert flows for SLA breaches and escalations. Backed by a CRM training handbook and service SOPs.",
   how:[["Ticket raised","Email, phone and portal requests land in one queue."],["Assignment","Routed to the right team and owner."],["SLA tracking","Response and resolution clocks per priority."],["Escalation","Breach alerts go to the next level."],["Resolution","Closed with notes, customer informed."],["Reporting","Daily KPI digest and weekly leadership report."]],
-  results:[["25+","reports across 5 dashboards"],["4","automated alerts and digests designed"],["1 queue","for every customer request"]],
+  results:[["25+","reports across 5 dashboards"],["4","automated alerts and digests running"],["1 queue","for every customer request"]],
   tools:["Zoho Desk","Zoho Analytics","Zoho Flow","SOPs & training"],viz:"tkt"},
  {id:"books",title:"Zoho Books Finance Automation",status:"live",short:"Invoices, sales orders, payments and credit notes mapped into one collections view.",
   role:"Designed and built the data model and queries",
@@ -1271,9 +1293,9 @@ function onScroll(){
   prog.style.transform=`scaleX(${h>0?Math.min(1,y/h):0})`;
 }
 addEventListener("scroll",onScroll,{passive:true});onScroll();
-const secMap={work:"work",approach:"approach",about:"about"};
+const secMap={top:"",problem:"",build:"",work:"work",dashboards:"work",beforeafter:"work",numbers:"work",about:"about",approach:"approach",ai:"approach",who:"",convert:"",contact:""};
 if("IntersectionObserver" in window){
-  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){$$(".navlinks a[data-nav]").forEach(a=>a.classList.toggle("on",a.dataset.nav===e.target.id));}}),{rootMargin:"-45% 0px -50% 0px"});
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const k=secMap[e.target.id];$$("a[data-nav]").forEach(a=>a.classList.toggle("on",a.dataset.nav===k));}}),{rootMargin:"-45% 0px -50% 0px"});
   Object.keys(secMap).forEach(id=>{const el=document.getElementById(id);if(el)io.observe(el);});
   const io2=new IntersectionObserver(es=>es.forEach(e=>e.target.classList.toggle("inview",e.isIntersecting)),{threshold:.3});
   $$(".pcard").forEach(c=>io2.observe(c));
@@ -1482,6 +1504,15 @@ $("#ptrack").addEventListener("pointerdown",e=>{downX=e.clientX;});
 $("#ptrack").addEventListener("click",e=>{const c=e.target.closest(".pcard[data-id]");if(!c||Math.abs(e.clientX-downX)>8)return;openProject(PROJECTS.findIndex(p=>p.id===c.dataset.id),e.clientX,e.clientY);});
 $("#ptrack").addEventListener("keydown",e=>{const c=e.target.closest(".pcard[data-id]");if(c&&(e.key==="Enter"||e.key===" ")){e.preventDefault();const r=c.getBoundingClientRect();openProject(PROJECTS.findIndex(p=>p.id===c.dataset.id),r.left+r.width/2,r.top+r.height/2);}});
 
+/* mobile menu */
+const menuBtn=$("#menuBtn"),mMenu=$("#mMenu");
+function setMenu(open){mMenu.hidden=!open;menuBtn.setAttribute("aria-expanded",String(open));menuBtn.setAttribute("aria-label",open?"Close menu":"Open menu");nav.classList.toggle("menu-open",open);}
+menuBtn.addEventListener("click",()=>{const open=mMenu.hidden;setMenu(open);if(open)$("a",mMenu).focus();});
+mMenu.addEventListener("click",e=>{if(e.target.closest("a"))setMenu(false);});
+document.addEventListener("click",e=>{if(!mMenu.hidden&&!e.target.closest("#mMenu,#menuBtn"))setMenu(false);});
+addEventListener("keydown",e=>{if(e.key==="Escape"&&!mMenu.hidden){setMenu(false);menuBtn.focus();}});
+matchMedia("(min-width:761px)").addEventListener("change",e=>{if(e.matches)setMenu(false);});
+
 /* smooth anchor scrolling (JS so ScrollTrigger measurements stay exact) */
 document.addEventListener("click",e=>{const a=e.target.closest&&e.target.closest('a[href^="#"]');if(!a)return;const id=a.getAttribute("href").slice(1);const t=id?document.getElementById(id):null;if(!t)return;e.preventDefault();if(!modal.hidden)closeModal();t.scrollIntoView({behavior:reduce?"auto":"smooth"});});
 /* project counter for native scroll */
@@ -1549,7 +1580,9 @@ function showDash(k){const d=DASH[k]();brBody.innerHTML=d.html;$("#brUrl").textC
   if(!reduce){$$(".dcard svg",brBody).forEach(sv=>sv.classList.add("grow"));if(G)G.from(brBody.children,{y:14,opacity:0,duration:.45,stagger:.06,ease:"power2.out"});}d.init(brBody);}
 $$(".br-tabs button").forEach(b=>b.addEventListener("click",()=>showDash(b.dataset.d)));
 $(".br-tabs").addEventListener("keydown",e=>{if(e.key!=="ArrowRight"&&e.key!=="ArrowLeft")return;const t=$$(".br-tabs button"),i=t.findIndex(b=>b.getAttribute("aria-selected")==="true");const n=t[(i+(e.key==="ArrowRight"?1:t.length-1))%t.length];n.focus();showDash(n.dataset.d);});
-if(motion){let dashShown=false;ST.create({trigger:"#browser",start:"top 80%",once:true,onEnter:()=>{if(!dashShown){dashShown=true;showDash("fleet");}}});}else showDash("fleet");
+/* render at load so the panel's height is reserved (in-page links land correctly); replay the animation when it comes into view */
+showDash("fleet");
+if(motion)ST.create({trigger:"#browser",start:"top 80%",once:true,onEnter:()=>{const t=$(".br-tabs button[aria-selected='true']");showDash(t?t.dataset.d:"fleet");}});
 
 /* =================== BEFORE/AFTER SLIDER =================== */
 const ba=$("#ba"),knob=$("#baKnob");let userDragged=false;
