@@ -1567,7 +1567,7 @@ function autosize(t){t.style.width="";const s=getComputedStyle(t);t.style.height
 $$(".madlib textarea").forEach(t=>{t.addEventListener("input",()=>autosize(t));});
 $$(".madlib input,.madlib textarea").forEach(el=>el.addEventListener("input",()=>{el.closest(".fld").classList.remove("err");const len=Math.max(el.placeholder.length*0.9,el.value.length+1);if(el.tagName==="INPUT")el.style.setProperty("--w",Math.min(28,Math.max(8,len))+"ch");}));
 /* Google Apps Script web app that saves to the "AN - Portfolio Form Responses" sheet (see apps-script/Code.gs) */
-const FORM_ENDPOINT="";
+const FORM_ENDPOINT="https://script.google.com/macros/s/AKfycbyWE6oGWQKy4-tdRrmn3z3JiHkFaJCFNNDjbUdJs0c3yRYxS7zEysYsejxb0LnGbDAV/exec";
 $("#cform").addEventListener("submit",async e=>{
   e.preventDefault();const form=e.target,f=Object.fromEntries(new FormData(form).entries());let bad=[];
   ["name","process","email","phone"].forEach(k=>{if(!String(f[k]||"").trim())bad.push(k);});

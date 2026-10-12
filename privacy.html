@@ -48,6 +48,22 @@ th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vert
 th{font-family:var(--mono);font-weight:400;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--dim)}
 td{color:var(--muted)}
 .tbl{overflow-x:auto}
+.pform{margin-top:20px;display:grid;gap:18px;background:rgba(255,255,255,.78);border:1px solid rgba(255,255,255,.95);box-shadow:var(--shadow);border-radius:20px;padding:clamp(18px,3vw,28px);position:relative;overflow:hidden}
+.pform::before,.pdone::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,var(--mint),var(--indigo))}
+.pform label{display:grid;gap:8px;font-weight:600;font-size:15px;color:var(--text)}
+.pform label span{font-weight:400;color:var(--dim);font-size:13.5px}
+.pform input,.pform select,.pform textarea{font:inherit;font-size:16px;font-weight:400;color:var(--text);background:#fff;border:1px solid var(--line2);border-radius:12px;padding:11px 14px;width:100%;transition:border-color .2s}
+.pform textarea{resize:vertical;min-height:120px}
+.pform input:focus,.pform select:focus,.pform textarea:focus{outline:none;border-color:var(--mint);box-shadow:0 0 0 3px rgba(14,156,131,.12)}
+.pform .err{border-color:#D9483B}
+.prow{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.prow button{font:inherit;font-weight:500;font-size:15px;height:48px;padding:0 22px;border-radius:999px;border:none;color:#fff;cursor:pointer;background:linear-gradient(180deg,#6A62F2 0%,#4F46E5 55%,#4338CA 100%);box-shadow:0 1px 0 rgba(255,255,255,.35) inset,0 10px 24px -10px rgba(79,70,229,.6)}
+.prow button:hover{filter:brightness(1.07)}
+.prow button[disabled]{opacity:.7;cursor:progress}
+.pmsg{color:#D9483B;font-size:14px;margin:0}
+.pdone{margin-top:20px;background:rgba(255,255,255,.78);border:1px solid rgba(14,156,131,.35);box-shadow:var(--shadow);border-radius:20px;padding:clamp(18px,3vw,28px);position:relative;overflow:hidden}
+.pdone p{margin:6px 0 0}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 footer{margin-top:72px;border-top:1px solid var(--line);padding-block:28px 40px;color:var(--dim);font-size:14px}
 </style>
 </head><body>
@@ -66,7 +82,7 @@ footer{margin-top:72px;border-top:1px solid var(--line);padding-block:28px 40px;
         <li>I use it only to reply to you about your enquiry.</li>
         <li>I don't sell it, share it for marketing, or add you to any mailing list.</li>
         <li>This site uses no cookies, analytics or tracking.</li>
-        <li>You can ask me to see, correct or delete your details at any time.</li>
+        <li>You can ask me to see, correct or delete your details at any time, using the <a href="#request">request form</a> below.</li>
       </ul>
     </div>
 
@@ -113,10 +129,28 @@ footer{margin-top:72px;border-top:1px solid var(--line);padding-block:28px 40px;
       <li>Correct or update them</li>
       <li>Delete them, or withdraw your consent to me using them</li>
     </ul>
-    <p>I will respond within 30 days. If you're not satisfied with my response, you can complain to the Data Protection Board of India.</p>
+    <p>Use the <a href="#request">privacy request form</a> below. I will respond within 30 days. If you're not satisfied with my response, you can complain to the Data Protection Board of India.</p>
 
-    <h2>Contact</h2>
-    <p>For any privacy question or request, email <a href="mailto:atulnaikofficial@gmail.com">atulnaikofficial@gmail.com</a> or message me on <a href="https://www.linkedin.com/in/naikatul" target="_blank" rel="noopener">LinkedIn</a>.</p>
+    <h2 id="request">Make a privacy request</h2>
+    <p>For any privacy question or request, fill in this form. I'll reply to the email address you give, and may ask you to confirm it's you before sharing or changing anything.</p>
+    <form class="pform" id="pform" novalidate>
+      <label>Your email <span>the one you used in the contact form</span>
+        <input type="email" name="email" autocomplete="email" placeholder="you@company.com" required maxlength="200"></label>
+      <label>What would you like to do?
+        <select name="request" required>
+          <option value="">Choose one</option>
+          <option>See my data</option>
+          <option>Correct my data</option>
+          <option>Delete my data</option>
+          <option>Withdraw consent</option>
+          <option>Other question</option>
+        </select></label>
+      <label>Details
+        <textarea name="details" rows="5" placeholder="Tell me what you need, e.g. which details to correct." required maxlength="2000"></textarea></label>
+      <div class="hp" aria-hidden="true"><label>Leave this empty <input name="website" tabindex="-1" autocomplete="off"></label></div>
+      <div class="prow"><button type="submit" id="pSubmit">Send request <span aria-hidden="true">→</span></button><span class="pmsg" id="pMsg" role="alert"></span></div>
+    </form>
+    <div class="pdone" id="pDone" hidden tabindex="-1"><p class="mono" style="color:var(--mint)">Request received</p><p><b>Thanks. I've received your request</b> and will reply by email within 30 days.</p></div>
 
     <h2>Changes</h2>
     <p>If I change how I handle your details, I'll update this page and the date at the top.</p>
@@ -124,4 +158,22 @@ footer{margin-top:72px;border-top:1px solid var(--line);padding-block:28px 40px;
 
   <footer>© 2026 Atul Naik · <a href="/">atulnaik.in</a></footer>
 </div>
+<script>
+/* Same Google Apps Script web app as the contact form; saves to the "Privacy requests" tab (see apps-script/Code.gs) */
+const FORM_ENDPOINT="https://script.google.com/macros/s/AKfycbyWE6oGWQKy4-tdRrmn3z3JiHkFaJCFNNDjbUdJs0c3yRYxS7zEysYsejxb0LnGbDAV/exec";
+const form=document.getElementById("pform"),msg=document.getElementById("pMsg"),btn=document.getElementById("pSubmit");
+form.addEventListener("submit",async e=>{
+  e.preventDefault();const f=Object.fromEntries(new FormData(form).entries());
+  const bad=[];if(!/^\S+@\S+\.\S+$/.test((f.email||"").trim()))bad.push("email");if(!f.request)bad.push("request");if(!(f.details||"").trim())bad.push("details");
+  form.querySelectorAll(".err").forEach(x=>x.classList.remove("err"));bad.forEach(k=>form.elements[k].classList.add("err"));
+  if(bad.length){msg.textContent="Please add a valid email, choose a request and add some details.";form.elements[bad[0]].focus();return;}
+  msg.textContent="";const label=btn.innerHTML;btn.disabled=true;btn.textContent="Sending…";
+  try{
+    const res=await fetch(FORM_ENDPOINT,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify({...f,form:"privacy"})});
+    const out=await res.json();if(!out.ok)throw new Error(out.error||"failed");
+  }catch(err){btn.disabled=false;btn.innerHTML=label;msg.textContent="Sorry, that didn't go through. Please try again in a moment.";return;}
+  form.hidden=true;const d=document.getElementById("pDone");d.hidden=false;d.focus();
+});
+form.addEventListener("input",e=>{e.target.classList.remove("err");if(!form.querySelector(".err"))msg.textContent="";});
+</script>
 </body></html>
