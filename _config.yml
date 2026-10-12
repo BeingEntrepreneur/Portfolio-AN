@@ -1,0 +1,4 @@
+# GitHub Pages build settings: keep these files in the repo but off the public site.
+exclude:
+  - apps-script
+  - README.md
