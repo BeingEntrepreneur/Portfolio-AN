@@ -701,7 +701,11 @@ h3{font-size:clamp(17px,1.4vw,20px)}
 .phone .ph-screen{border-radius:30px;background:linear-gradient(180deg,#FFFFFF,#F7F8FD);border:6px solid #1E2235;box-shadow:var(--shadow-lg),0 0 0 1px rgba(17,24,39,.08);padding:26px 10px 12px;display:grid;gap:7px;min-height:330px;font-size:10.5px;overflow:hidden}
 .ph-notch{position:absolute;top:6px;left:50%;transform:translateX(-50%);width:52px;height:14px;border-radius:0 0 10px 10px;background:#1E2235;z-index:2}
 .ph-status{position:absolute;top:11px;left:20px;right:20px;display:flex;justify-content:space-between;font-size:8.5px;color:var(--muted)}
-.phone{padding-top:0}.phone .ph-screen{position:relative}
+.phone{padding-top:0}.phone .ph-screen{position:relative;height:375px;min-height:0;align-content:start}
+/* supervisor phone: header and button stay put, the checklist scrolls inside the screen like a real app */
+.phone.p1 .ph-screen{grid-template-rows:auto minmax(0,1fr) auto}
+.ph-list{overflow:hidden;min-height:0;-webkit-mask-image:linear-gradient(180deg,transparent,#000 8px,#000 calc(100% - 14px),transparent);mask-image:linear-gradient(180deg,transparent,#000 8px,#000 calc(100% - 14px),transparent)}
+.ph-list-in{display:grid;gap:7px;padding-block:4px}
 .ph-top{display:grid;gap:3px}.ph-top .mono{font-size:8px;color:var(--dim)}.ph-top b{font-size:13px;letter-spacing:-.01em}
 .ph-top small{font-size:9px;color:var(--muted)}
 .ph-prog{height:5px;border-radius:3px;background:var(--surface3);overflow:hidden}.ph-prog i{display:block;height:100%;background:linear-gradient(90deg,var(--mint),var(--indigo));border-radius:3px}
@@ -955,9 +959,9 @@ h3{font-size:clamp(17px,1.4vw,20px)}
           <div class="ph-screen">
             <div class="ph-status mono"><span>9:41</span><span>PPM</span></div>
             <div class="ph-top"><span class="mono">Cluster 2 · Site 07</span><b>Today's checks</b><div class="ph-prog"><i style="width:66%"></i></div><small>4 of 6 done</small></div>
-            <div class="ph-task"><b>DG set run test</b><div class="ph-opts"><span class="on w">Working</span><span>Partial</span><span>Not working</span></div><small class="ok">Photo added</small></div>
+            <div class="ph-list"><div class="ph-list-in"><div class="ph-task"><b>DG set run test</b><div class="ph-opts"><span class="on w">Working</span><span>Partial</span><span>Not working</span></div><small class="ok">Photo added</small></div>
             <div class="ph-task"><b>Fire pump check</b><div class="ph-opts"><span>Working</span><span class="on p">Partial</span><span>Not working</span></div><small>Comment: pressure low, vendor called</small></div>
-            <div class="ph-task"><b>STP inspection</b><div class="ph-opts"><span>Working</span><span>Partial</span><span>Not working</span></div><div class="ph-photo">+ Add photo (required)</div></div>
+            <div class="ph-task"><b>STP inspection</b><div class="ph-opts"><span>Working</span><span>Partial</span><span>Not working</span></div><div class="ph-photo">+ Add photo (required)</div></div></div></div>
             <div class="ph-btn">Submit checks</div>
           </div>
           <p class="ph-cap mono">Supervisor app · maintenance checks</p>
@@ -1582,6 +1586,14 @@ let downX=0;
 $("#ptrack").addEventListener("pointerdown",e=>{downX=e.clientX;});
 $("#ptrack").addEventListener("click",e=>{const c=e.target.closest(".pcard[data-id]");if(!c||Math.abs(e.clientX-downX)>8)return;openProject(PROJECTS.findIndex(p=>p.id===c.dataset.id),e.clientX,e.clientY);});
 $("#ptrack").addEventListener("keydown",e=>{const c=e.target.closest(".pcard[data-id]");if(c&&(e.key==="Enter"||e.key===" ")){e.preventDefault();const r=c.getBoundingClientRect();openProject(PROJECTS.findIndex(p=>p.id===c.dataset.id),r.left+r.width/2,r.top+r.height/2);}});
+
+/* supervisor phone checklist: how far to scroll inside the screen */
+let phTw=[];
+function phScroll(){phTw.forEach(t=>t.kill());phTw=[];if(!motion)return;
+  $$(".ph-list").forEach(l=>{const inn=l.firstElementChild;G.set(inn,{y:0});const d=Math.max(0,inn.scrollHeight-l.clientHeight);if(!d)return;
+    const tw=G.to(inn,{y:-d,duration:2.8,ease:"power1.inOut",repeat:-1,yoyo:true,repeatDelay:1.8,delay:1.5});phTw.push(tw);
+    const ph=l.closest(".phone");ph.onmouseenter=()=>tw.pause();ph.onmouseleave=()=>tw.resume();});}
+addEventListener("load",phScroll);let phR;addEventListener("resize",()=>{clearTimeout(phR);phR=setTimeout(phScroll,250);});
 
 /* mobile menu */
 const menuBtn=$("#menuBtn"),mMenu=$("#mMenu");
