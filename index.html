@@ -736,9 +736,9 @@ h3{font-size:clamp(17px,1.4vw,20px)}
 .hob{--S:min(440px,38vw);width:var(--S);height:var(--S);position:relative}
 .hob-track{position:absolute;inset:0;margin:auto;border-radius:50%;border:1px dashed rgba(79,70,229,.22)}
 .hob-track.t1{width:62%;height:62%}.hob-track.t2{width:100%;height:100%;border-color:rgba(14,156,131,.22)}
-.hob-ring{position:absolute;inset:0;animation:hobSpin 60s linear infinite}
+.hob-ring{position:absolute;inset:0;pointer-events:none;animation:hobSpin 60s linear infinite}
 .hob-ring.out{animation-direction:reverse;animation-duration:80s}
-.hob-node{position:absolute;left:50%;top:50%;width:0;height:0;transform:rotate(var(--a)) translateX(calc(var(--S) * var(--rr))) rotate(calc(-1 * var(--a)))}
+.hob-node{pointer-events:auto;position:absolute;left:50%;top:50%;width:0;height:0;transform:rotate(var(--a)) translateX(calc(var(--S) * var(--rr))) rotate(calc(-1 * var(--a)))}
 .hob-ring.in .hob-node{--rr:.31}.hob-ring.out .hob-node{--rr:.5}
 .hob-chip{position:absolute;left:0;top:0;width:50px;height:50px;margin:-25px 0 0 -25px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.9);border:1px solid #fff;box-shadow:var(--shadow-lg);color:var(--indigo);animation:hobSpin 60s linear infinite reverse;transition:box-shadow .3s}
 .hob-ring.out .hob-chip{animation-direction:normal;animation-duration:80s;color:var(--mint)}
