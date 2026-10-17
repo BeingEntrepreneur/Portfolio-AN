@@ -12,7 +12,7 @@
 <meta property="og:url" content="https://atulnaik.in/services.html">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230F1B2D'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='28' font-weight='700' fill='%23F5A623' text-anchor='middle'%3EAN%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='a' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2314B8A6'/%3E%3Cstop offset='1' stop-color='%234F46E5'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%237C6CF6'/%3E%3Cstop offset='1' stop-color='%230E9C83'/%3E%3C/linearGradient%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23EEF0FF'/%3E%3Cstop offset='1' stop-color='%23DCF3EC'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='15' fill='url(%23g)'/%3E%3Cg transform='translate(9.6 9) scale(1.12)'%3E%3Cg fill='url(%23a)' stroke='%23fff' stroke-width='1' stroke-linejoin='round'%3E%3Cpath d='M20 29C13 27.5 6 23.5 3.5 16.5C11 16 17 21 20 29Z' opacity='.55'/%3E%3Cpath d='M20 29C27 27.5 34 23.5 36.5 16.5C29 16 23 21 20 29Z' opacity='.55'/%3E%3Cpath d='M20 29C14 24.5 10.5 16.5 12.5 9C18 12.5 21 20.5 20 29Z' opacity='.8'/%3E%3Cpath d='M20 29C26 24.5 29.5 16.5 27.5 9C22 12.5 19 20.5 20 29Z' opacity='.8'/%3E%3Cpath d='M20 29C15.8 23 15.8 12 20 4.5C24.2 12 24.2 23 20 29Z' fill='url(%23b)'/%3E%3C/g%3E%3Cpath d='M8.5 33.2Q20 37.6 31.5 33.2' fill='none' stroke='url(%23a)' stroke-width='2.2' stroke-linecap='round'/%3E%3C/g%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500&family=Dancing+Script:wght@600;700&family=Tiro+Devanagari+Sanskrit&display=swap">
@@ -53,7 +53,8 @@ h1,h2,h3{margin:0;font-weight:700;letter-spacing:-.025em;line-height:1.12;text-w
 h2{font-size:clamp(26px,2.9vw,40px)}
 p{margin:0}
 .eyebrow{color:var(--muted);display:inline-flex;align-items:center;gap:10px}
-.eyebrow::before{content:"";width:7px;height:7px;border-radius:2px;background:linear-gradient(135deg,var(--mint),var(--indigo));transform:rotate(45deg)}
+.eyebrow::before{content:"";flex:none;width:14px;height:14px;background:linear-gradient(135deg,var(--mint),var(--indigo));-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='black' stroke-width='1.7'%3E%3Ccircle cx='12' cy='12' r='9.4'/%3E%3Ccircle cx='12' cy='12' r='2.4'/%3E%3Cpath d='M12 2.6v6.9M12 14.5v6.9M2.6 12h6.9M14.5 12h6.9M5.35 5.35l4.95 4.95M13.7 13.7l4.95 4.95M18.65 5.35 13.7 10.3M10.3 13.7l-4.95 4.95'/%3E%3C/g%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='black' stroke-width='1.7'%3E%3Ccircle cx='12' cy='12' r='9.4'/%3E%3Ccircle cx='12' cy='12' r='2.4'/%3E%3Cpath d='M12 2.6v6.9M12 14.5v6.9M2.6 12h6.9M14.5 12h6.9M5.35 5.35l4.95 4.95M13.7 13.7l4.95 4.95M18.65 5.35 13.7 10.3M10.3 13.7l-4.95 4.95'/%3E%3C/g%3E%3C/svg%3E") center/contain no-repeat;animation:chakra 16s linear infinite}
+@keyframes chakra{to{transform:rotate(360deg)}}
 .grad{background:linear-gradient(90deg,#0E9C83,#4F46E5);-webkit-background-clip:text;background-clip:text;color:transparent}
 .progress{position:fixed;left:0;right:0;top:0;height:3px;z-index:60;background:linear-gradient(90deg,var(--mint),var(--indigo));transform-origin:left;transform:scaleX(0)}
 #glow{position:fixed;left:0;top:0;width:520px;height:520px;margin:-260px 0 0 -260px;border-radius:50%;pointer-events:none;z-index:0;background:radial-gradient(circle,rgba(79,70,229,.07),transparent 62%);transform:translate3d(-999px,-999px,0)}
@@ -171,6 +172,7 @@ main{position:relative;z-index:1}
 .svc h3{font-size:18.5px;margin-top:4px}
 .prob{color:var(--muted);font-size:14px}
 .get-h{color:var(--mint);font-size:10.5px;margin-top:4px}
+.prob-h{color:#C2364F;font-size:10.5px;margin-top:2px;margin-bottom:-4px}
 .gets{list-style:none;margin:0;padding:0;display:grid;gap:7px}
 .gets li{display:grid;grid-template-columns:18px 1fr;gap:8px;font-size:14px;font-weight:600;line-height:1.4}
 .gets li::before{content:"";width:16px;height:16px;margin-top:1px;border-radius:50%;background:var(--mint-d) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.3 7 10.7l4.6-5.2' fill='none' stroke='%230E9C83' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/16px no-repeat}
@@ -306,8 +308,7 @@ footer{padding-block:34px 44px;color:var(--dim);font-size:14px}
 footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:26px}
 footer a{color:var(--muted)}
 .sk{font-family:"Tiro Devanagari Sanskrit",serif;font-size:15px;color:var(--text)}
-.wa-fab{position:fixed;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:90;width:56px;height:56px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 10px 24px -8px rgba(0,0,0,.35);transition:transform .2s}
-.wa-fab:hover{transform:scale(1.07)}.wa-fab svg{width:30px;height:30px;fill:#fff}
+.chat-fab{position:fixed;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:90;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#6A62F2,#4338CA 60%,#0E9C83);color:#fff;display:grid;place-items:center;box-shadow:0 12px 28px -8px rgba(79,70,229,.6);transition:transform .2s;text-decoration:none}.chat-fab:hover{transform:scale(1.07)}.chat-fab svg{width:28px;height:28px}.chat-fab::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:2px solid rgba(79,70,229,.35);animation:cfRing 2.8s ease-out infinite;pointer-events:none}@keyframes cfRing{0%{transform:scale(.9);opacity:1}100%{transform:scale(1.35);opacity:0}}.chat-fab .cf-tip{position:absolute;right:calc(100% + 12px);top:50%;transform:translate(6px,-50%);white-space:nowrap;background:#1E2235;color:#fff;font-size:13px;font-weight:500;padding:7px 12px;border-radius:999px;opacity:0;transition:opacity .2s,transform .2s;pointer-events:none}.chat-fab:hover .cf-tip,.chat-fab:focus-visible .cf-tip{opacity:1;transform:translate(0,-50%)}@media print{.chat-fab{display:none}}
 
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
@@ -320,21 +321,21 @@ footer a{color:var(--muted)}
 
 <header class="nav" id="nav">
   <div class="wrap">
-    <a class="brand" href="index.html" aria-label="Atul Naik, home"><svg class="logo" viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="lgA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#14B8A6"/><stop offset="1" stop-color="#4F46E5"/></linearGradient><linearGradient id="lgB" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7C6CF6"/><stop offset="1" stop-color="#0E9C83"/></linearGradient></defs><g fill="url(#lgA)" stroke="#fff" stroke-width="1.1" stroke-linejoin="round"><path d="M20 29C13 27.5 6 23.5 3.5 16.5C11 16 17 21 20 29Z" opacity=".5"/><path d="M20 29C27 27.5 34 23.5 36.5 16.5C29 16 23 21 20 29Z" opacity=".5"/><path d="M20 29C14 24.5 10.5 16.5 12.5 9C18 12.5 21 20.5 20 29Z" opacity=".78"/><path d="M20 29C26 24.5 29.5 16.5 27.5 9C22 12.5 19 20.5 20 29Z" opacity=".78"/><path d="M20 29C15.8 23 15.8 12 20 4.5C24.2 12 24.2 23 20 29Z" fill="url(#lgB)"/></g><path d="M8.5 33.2Q20 37.6 31.5 33.2" fill="none" stroke="url(#lgA)" stroke-width="2" stroke-linecap="round"/></svg><span class="brand-name">Atul Naik</span><span class="shloka" aria-hidden="true"><b>योगः कर्मसु कौशलम्</b><span>Yoga is excellence in action · Bhagavad Gita 2.50</span><span>The lotus: clarity that rises out of the mud.</span></span></a>
+    <a class="brand" href="/" aria-label="Atul Naik, home"><svg class="logo" viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="lgA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#14B8A6"/><stop offset="1" stop-color="#4F46E5"/></linearGradient><linearGradient id="lgB" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7C6CF6"/><stop offset="1" stop-color="#0E9C83"/></linearGradient></defs><g fill="url(#lgA)" stroke="#fff" stroke-width="1.1" stroke-linejoin="round"><path d="M20 29C13 27.5 6 23.5 3.5 16.5C11 16 17 21 20 29Z" opacity=".5"/><path d="M20 29C27 27.5 34 23.5 36.5 16.5C29 16 23 21 20 29Z" opacity=".5"/><path d="M20 29C14 24.5 10.5 16.5 12.5 9C18 12.5 21 20.5 20 29Z" opacity=".78"/><path d="M20 29C26 24.5 29.5 16.5 27.5 9C22 12.5 19 20.5 20 29Z" opacity=".78"/><path d="M20 29C15.8 23 15.8 12 20 4.5C24.2 12 24.2 23 20 29Z" fill="url(#lgB)"/></g><path d="M8.5 33.2Q20 37.6 31.5 33.2" fill="none" stroke="url(#lgA)" stroke-width="2" stroke-linecap="round"/></svg><span class="brand-name">Atul Naik</span><span class="shloka" aria-hidden="true"><b>योगः कर्मसु कौशलम्</b><span>Yoga is excellence in action · Bhagavad Gita 2.50</span><span>The lotus: clarity that rises out of the mud.</span></span></a>
     <nav class="navlinks" aria-label="Main">
       <a href="services.html" class="on" aria-current="page">Services</a>
-      <a href="index.html#work">Work</a>
-      <a href="index.html#approach">Approach</a>
-      <a href="index.html#about">About</a>
-      <a class="btn sm primary magnetic" href="index.html#contact">Let's talk <span class="arr">→</span></a>
+      <a href="/#work">Work</a>
+      <a href="/#approach">Approach</a>
+      <a href="/#about">About</a>
+      <a class="btn sm primary magnetic" href="/#contact">Let's talk <span class="arr">→</span></a>
       <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mMenu" aria-label="Open menu"><span></span><span></span></button>
     </nav>
   </div>
   <div class="m-menu" id="mMenu" hidden>
     <a href="services.html" class="on" aria-current="page">Services</a>
-    <a href="index.html#work">Work</a>
-    <a href="index.html#approach">Approach</a>
-    <a href="index.html#about">About</a>
+    <a href="/#work">Work</a>
+    <a href="/#approach">Approach</a>
+    <a href="/#about">About</a>
   </div>
 </header>
 
@@ -347,7 +348,7 @@ footer a{color:var(--muted)}
       <p class="lede h-in">From WhatsApp follow-ups to a full CRM, I design simple systems that save hours every week, cut errors and put your whole business on one screen.</p>
       <div class="ctas h-in">
         <a class="btn primary magnetic" href="#services">See all services <span class="arr">↓</span></a>
-        <a class="btn ghost magnetic" href="index.html#contact">Start a conversation</a>
+        <a class="btn ghost magnetic" href="/#contact">Start a conversation</a>
       </div>
       <div class="chips h-in"><span>11 services</span><span>Built on tools you already use</span><span>Free first call</span></div>
     </div>
@@ -357,7 +358,7 @@ footer a{color:var(--muted)}
         <span class="pulse"></span><span class="pulse p2"></span><span class="pulse p3"></span>
         <span class="spark"></span><span class="spark s2"></span>
         <div class="o-ring in"><a class="o-node" href="#s-wa" style="--a:0deg" aria-label="WhatsApp Automation"><span class="o-chip"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.4 7.6L3.5 21l1.4-4.9A8.5 8.5 0 1 1 21 12z"/><path d="M9 9.5c.3 2.6 2.4 4.8 5 5.2"/></svg><em>WhatsApp Automation</em></span></a><a class="o-node" href="#s-approve" style="--a:72deg" aria-label="Approvals &amp; Workflow Automation"><span class="o-chip"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12.3 2.8 2.7L16.5 9"/></svg><em>Approvals &amp; Workflow Automation</em></span></a><a class="o-node" href="#s-ai" style="--a:144deg" aria-label="Custom AI Receptionist"><span class="o-chip"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21M19.5 3.5l.6 1.4 1.4.6-1.4.6-.6 1.4-.6-1.4-1.4-.6 1.4-.6z"/></svg><em>Custom AI Receptionist</em></span></a><a class="o-node" href="#s-doc" style="--a:216deg" aria-label="Document Automation"><span class="o-chip"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg><em>Document Automation</em></span></a><a class="o-node" href="#s-dash" style="--a:288deg" aria-label="Dashboards &amp; MIS"><span class="o-chip"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M6 17v-5M11 17V7M16 17v-8M21 17V4"/></svg><em>Dashboards &amp; MIS</em></span></a></div>
-        <div class="o-ring out"><a class="o-node" href="#s-book" style="--a:30deg" aria-label="Internal Tools &amp; Booking Systems"><span class="o-chip"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2.5"/><path d="M3 10h18M8 3v4M16 3v4M8 14h2M12 14h2M8 17h2"/></svg><em>Internal Tools &amp; Booking Systems</em></span></a><a class="o-node" href="#s-crm" style="--a:90deg" aria-label="End-to-End CRM &amp; Ticketing Setup"><span class="o-chip"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.6a3.5 3.5 0 0 1 0 6.8M18 14.2A6.5 6.5 0 0 1 21.5 20"/></svg><em>End-to-End CRM &amp; Ticketing Setup</em></span></a><a class="o-node" href="#s-data" style="--a:150deg" aria-label="Data Cleanup &amp; System Setup"><span class="o-chip"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="8" ry="3"/><path d="M4 5.5v13c0 1.7 3.6 3 8 3s8-1.3 8-3v-13M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg><em>Data Cleanup &amp; System Setup</em></span></a><a class="o-node" href="#s-biz" style="--a:210deg" aria-label="Workflows for Small Businesses"><span class="o-chip"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 9 5 4h14l1.5 5M3.5 9h17v1.5a2.8 2.8 0 0 1-5.6 0 2.8 2.8 0 0 1-5.8 0 2.8 2.8 0 0 1-5.6 0zM5 13v8h14v-8M10 21v-4.5h4V21"/></svg><em>Workflows for Small Businesses</em></span></a><a class="o-node" href="#s-sop" style="--a:270deg" aria-label="Operations &amp; SOP Design"><span class="o-chip"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 6h11M10 12h11M10 18h11M3 6l1.5 1.5L7 5M3 12l1.5 1.5L7 11M3 18l1.5 1.5L7 17"/></svg><em>Operations &amp; SOP Design</em></span></a><a class="o-node" href="#s-li" style="--a:330deg" aria-label="LinkedIn Profile Revamp"><span class="o-chip"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M8 10.5V17M8 7.2v.1M12 17v-6.5M12 13.2c0-1.6 1.1-2.7 2.5-2.7s2.5 1 2.5 2.7V17"/></svg><em>LinkedIn Profile Revamp</em></span></a></div>
+        <div class="o-ring out"><a class="o-node" href="#s-book" style="--a:30deg" aria-label="Internal Tools &amp; Booking Systems"><span class="o-chip"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2.5"/><path d="M3 10h18M8 3v4M16 3v4M8 14h2M12 14h2M8 17h2"/></svg><em>Internal Tools &amp; Booking Systems</em></span></a><a class="o-node" href="#s-crm" style="--a:90deg" aria-label="End-to-End CRM &amp; Ticketing Setup"><span class="o-chip"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.6a3.5 3.5 0 0 1 0 6.8M18 14.2A6.5 6.5 0 0 1 21.5 20"/></svg><em>End-to-End CRM &amp; Ticketing Setup</em></span></a><a class="o-node" href="#s-data" style="--a:150deg" aria-label="Data Cleanup &amp; System Setup"><span class="o-chip"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="8" ry="3"/><path d="M4 5.5v13c0 1.7 3.6 3 8 3s8-1.3 8-3v-13M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg><em>Data Cleanup &amp; System Setup</em></span></a><a class="o-node" href="#s-biz" style="--a:210deg" aria-label="Workflows for Small Businesses"><span class="o-chip"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 9 5 4h14l1.5 5M3.5 9h17v1.5a2.8 2.8 0 0 1-5.6 0 2.8 2.8 0 0 1-5.8 0 2.8 2.8 0 0 1-5.6 0zM5 13v8h14v-8M10 21v-4.5h4V21"/></svg><em>Workflows for Small Businesses</em></span></a><a class="o-node" href="#s-sop" style="--a:270deg" aria-label="Operations &amp; SOP Design"><span class="o-chip"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 6h11M10 12h11M10 18h11M3 6l1.5 1.5L7 5M3 12l1.5 1.5L7 11M3 18l1.5 1.5L7 17"/></svg><em>Operations &amp; SOP Design</em></span></a><a class="o-node" href="#s-li" style="--a:330deg" aria-label="LinkedIn Profile Makeover"><span class="o-chip"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M8 10.5V17M8 7.2v.1M12 17v-6.5M12 13.2c0-1.6 1.1-2.7 2.5-2.7s2.5 1 2.5 2.7V17"/></svg><em>LinkedIn Profile Makeover</em></span></a></div>
         <div class="hub"><div><svg viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="hA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#14B8A6"/><stop offset="1" stop-color="#4F46E5"/></linearGradient><linearGradient id="hB" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7C6CF6"/><stop offset="1" stop-color="#0E9C83"/></linearGradient></defs><g fill="url(#hA)" stroke="#fff" stroke-width="1.1" stroke-linejoin="round"><path d="M20 29C13 27.5 6 23.5 3.5 16.5C11 16 17 21 20 29Z" opacity=".5"/><path d="M20 29C27 27.5 34 23.5 36.5 16.5C29 16 23 21 20 29Z" opacity=".5"/><path d="M20 29C14 24.5 10.5 16.5 12.5 9C18 12.5 21 20.5 20 29Z" opacity=".78"/><path d="M20 29C26 24.5 29.5 16.5 27.5 9C22 12.5 19 20.5 20 29Z" opacity=".78"/><path d="M20 29C15.8 23 15.8 12 20 4.5C24.2 12 24.2 23 20 29Z" fill="url(#hB)"/></g><path d="M8.5 33.2Q20 37.6 31.5 33.2" fill="none" stroke="url(#hA)" stroke-width="2" stroke-linecap="round"/></svg><small>Your business</small></div></div>
       </div>
     </div>
@@ -377,117 +378,128 @@ footer a{color:var(--muted)}
   <div class="svc-top"><span class="svc-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.4 7.6L3.5 21l1.4-4.9A8.5 8.5 0 1 1 21 12z"/><path d="M9 9.5c.3 2.6 2.4 4.8 5 5.2"/></svg></span><span class="svc-tag mono">Automate</span><span class="new mono">New</span></div>
   <div class="mini" aria-hidden="true"><div class="m-wa"><span class="b in">Hi! Is my order ready?</span><span class="b out">Yes, ready for pickup at 5 PM <i>✓✓</i></span><span class="b out sm">Reminder sent automatically <i>✓✓</i></span></div></div>
   <h3>WhatsApp Automation</h3>
-  <p class="prob">Your customers already live on WhatsApp. Let it do the follow-ups for you.</p>
+  <p class="prob-h mono">The problem</p>
+  <p class="prob">Customers message all day, and every reply, reminder and follow-up is typed by hand.</p>
   <p class="get-h mono">What you get</p>
   <ul class="gets"><li>Automatic confirmations, reminders and updates</li><li>One-tap replies that update your records</li><li>Every conversation logged, nothing slips</li></ul>
   
-  <a class="svc-cta" href="index.html#contact">Talk about this <span>→</span></a>
+  <a class="svc-cta" href="/#contact">Talk about this <span>→</span></a>
 </article>
 <article class="svc" data-g="automate" id="s-approve">
   <div class="svc-top"><span class="svc-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12.3 2.8 2.7L16.5 9"/></svg></span><span class="svc-tag mono">Automate</span></div>
   <div class="mini" aria-hidden="true"><div class="m-appr"><div><i></i><span>Request raised</span></div><div><i></i><span>Manager approved</span></div><div><i></i><span>Finance notified</span></div><b>Approved in 4 min</b></div></div>
   <h3>Approvals &amp; Workflow Automation</h3>
+  <p class="prob-h mono">The problem</p>
   <p class="prob">Approvals chased on calls and messages, and nobody knows where a request is stuck.</p>
   <p class="get-h mono">What you get</p>
   <ul class="gets"><li>One simple form for every request</li><li>One-tap approvals on WhatsApp or email</li><li>A live tracker: who is holding what, and for how long</li></ul>
   <p class="proof"><span class="mono">Done before</span>Expense approvals cut from days to minutes</p>
-  <a class="svc-cta" href="index.html#contact">Talk about this <span>→</span></a>
+  <a class="svc-cta" href="/#contact">Talk about this <span>→</span></a>
 </article>
 <article class="svc" data-g="automate" id="s-ai">
   <div class="svc-top"><span class="svc-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21M19.5 3.5l.6 1.4 1.4.6-1.4.6-.6 1.4-.6-1.4-1.4-.6 1.4-.6z"/></svg></span><span class="svc-tag mono">Automate</span><span class="new mono">New</span></div>
   <div class="mini" aria-hidden="true"><div class="m-ai"><div class="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span class="ok">Appointment booked · Tue 4:30 PM</span></div></div>
   <h3>Custom AI Receptionist</h3>
+  <p class="prob-h mono">The problem</p>
   <p class="prob">Missed calls and late replies quietly turn into lost customers.</p>
   <p class="get-h mono">What you get</p>
   <ul class="gets"><li>Answers questions 24×7 by chat or voice</li><li>Books appointments straight into your calendar</li><li>Hands over to you with a clean summary</li></ul>
   
-  <a class="svc-cta" href="index.html#contact">Talk about this <span>→</span></a>
+  <a class="svc-cta" href="/#contact">Talk about this <span>→</span></a>
 </article>
 <article class="svc" data-g="automate" id="s-doc">
   <div class="svc-top"><span class="svc-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></span><span class="svc-tag mono">Automate</span></div>
   <div class="mini" aria-hidden="true"><div class="m-doc"><span class="pg p1"></span><span class="pg p2"></span><span class="pg p3"><i></i><i></i><i></i><i class="s"></i></span><b class="cnt"><em></em> / 400 generated</b></div></div>
   <h3>Document Automation</h3>
+  <p class="prob-h mono">The problem</p>
   <p class="prob">Agreements, letters and quotations still typed one by one.</p>
   <p class="get-h mono">What you get</p>
   <ul class="gets"><li>Hundreds of documents in one click</li><li>Right template, right details, zero typos</li><li>Saved, named and sent automatically</li></ul>
   <p class="proof"><span class="mono">Done before</span>~400 agreements, 2 hrs → under 1 min each</p>
-  <a class="svc-cta" href="index.html#contact">Talk about this <span>→</span></a>
+  <a class="svc-cta" href="/#contact">Talk about this <span>→</span></a>
 </article>
 <article class="svc" data-g="build" id="s-dash">
   <div class="svc-top"><span class="svc-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M6 17v-5M11 17V7M16 17v-8M21 17V4"/></svg></span><span class="svc-tag mono">Build</span></div>
   <div class="mini" aria-hidden="true"><div class="m-dash"><div class="k"><span>Today</span><b>₹4.8 L</b></div><div class="bars"><i style="--h:42%"></i><i style="--h:60%"></i><i style="--h:51%"></i><i style="--h:74%"></i><i style="--h:66%"></i><i style="--h:88%"></i></div></div></div>
   <h3>Dashboards &amp; MIS</h3>
+  <p class="prob-h mono">The problem</p>
   <p class="prob">The same report rebuilt by hand every month, and it&#x27;s still late.</p>
   <p class="get-h mono">What you get</p>
   <ul class="gets"><li>Your whole business on one screen</li><li>Numbers that update themselves</li><li>Spot problems before they cost you</li></ul>
   <p class="proof"><span class="mono">Done before</span>Live MIS across 40+ sites</p>
-  <a class="svc-cta" href="index.html#contact">Talk about this <span>→</span></a>
+  <a class="svc-cta" href="/#contact">Talk about this <span>→</span></a>
 </article>
 <article class="svc" data-g="build" id="s-book">
   <div class="svc-top"><span class="svc-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2.5"/><path d="M3 10h18M8 3v4M16 3v4M8 14h2M12 14h2M8 17h2"/></svg></span><span class="svc-tag mono">Build</span></div>
   <div class="mini" aria-hidden="true"><div class="m-book"><i style="--d:0"></i><i style="--d:5"></i><i style="--d:2"></i><i style="--d:9"></i><i style="--d:1"></i><i style="--d:7"></i><i style="--d:11"></i><i style="--d:3"></i><i style="--d:10"></i><i style="--d:6"></i><i style="--d:4"></i><i style="--d:8"></i><i style="--d:13"></i><i style="--d:12"></i></div></div>
   <h3>Internal Tools &amp; Booking Systems</h3>
+  <p class="prob-h mono">The problem</p>
   <p class="prob">Bookings and requests run on phone calls, diaries and memory.</p>
   <p class="get-h mono">What you get</p>
   <ul class="gets"><li>A simple app built around your rules</li><li>Clash checks and automatic notifications</li><li>Every booking recorded and reportable</li></ul>
   <p class="proof"><span class="mono">Done before</span>750+ internal bookings handled</p>
-  <a class="svc-cta" href="index.html#contact">Talk about this <span>→</span></a>
+  <a class="svc-cta" href="/#contact">Talk about this <span>→</span></a>
 </article>
 <article class="svc" data-g="setup" id="s-crm">
   <div class="svc-top"><span class="svc-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.6a3.5 3.5 0 0 1 0 6.8M18 14.2A6.5 6.5 0 0 1 21.5 20"/></svg></span><span class="svc-tag mono">Set up</span></div>
   <div class="mini" aria-hidden="true"><div class="m-crm"><div class="col"><span>New</span></div><div class="col"><span>In progress</span></div><div class="col"><span>Resolved</span></div><div class="card">Lead · Priya S.<em>SLA 2h</em></div></div></div>
   <h3>End-to-End CRM &amp; Ticketing Setup</h3>
+  <p class="prob-h mono">The problem</p>
   <p class="prob">Leads and complaints scattered across inboxes, phones and notebooks.</p>
   <p class="get-h mono">What you get</p>
   <ul class="gets"><li>Every lead and ticket in one place, with an owner</li><li>SLA timers and escalations that run on their own</li><li>Clear view of response times and team performance</li></ul>
   <p class="proof"><span class="mono">Done before</span>25+ SLA and service reports set up</p>
-  <a class="svc-cta" href="index.html#contact">Talk about this <span>→</span></a>
+  <a class="svc-cta" href="/#contact">Talk about this <span>→</span></a>
 </article>
 <article class="svc" data-g="setup" id="s-data">
   <div class="svc-top"><span class="svc-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="8" ry="3"/><path d="M4 5.5v13c0 1.7 3.6 3 8 3s8-1.3 8-3v-13M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg></span><span class="svc-tag mono">Set up</span></div>
   <div class="mini" aria-hidden="true"><div class="m-data"><div class="row"><s>" palm grove "</s><b>Palm Grove</b></div><div class="row"><s>PALMGROVE-II</s><b>Palm Grove II</b></div><div class="row"><s>unit 7</s><b>07</b></div></div></div>
   <h3>Data Cleanup &amp; System Setup</h3>
+  <p class="prob-h mono">The problem</p>
   <p class="prob">Messy records, duplicate names and systems that don&#x27;t talk to each other.</p>
   <p class="get-h mono">What you get</p>
   <ul class="gets"><li>Clean data you can finally trust</li><li>One structure across all your systems</li><li>Mapping rules that keep it clean</li></ul>
   <p class="proof"><span class="mono">Done before</span>5 finance modules joined into one view</p>
-  <a class="svc-cta" href="index.html#contact">Talk about this <span>→</span></a>
+  <a class="svc-cta" href="/#contact">Talk about this <span>→</span></a>
 </article>
 <article class="svc" data-g="design" id="s-biz">
   <div class="svc-top"><span class="svc-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 9 5 4h14l1.5 5M3.5 9h17v1.5a2.8 2.8 0 0 1-5.6 0 2.8 2.8 0 0 1-5.8 0 2.8 2.8 0 0 1-5.6 0zM5 13v8h14v-8M10 21v-4.5h4V21"/></svg></span><span class="svc-tag mono">Design & grow</span></div>
   <div class="mini" aria-hidden="true"><div class="m-biz"><div class="tick"><span>Café</span><span>Salon</span><span>Clinic</span><span>Dentist</span><span>Architect</span><span>Café</span></div><span class="ok">Reminder sent ✓</span></div></div>
   <h3>Workflows for Small Businesses</h3>
+  <p class="prob-h mono">The problem</p>
   <p class="prob">Cafés, salons, clinics, dentists and architects juggle bookings, staff and follow-ups by hand.</p>
   <p class="get-h mono">What you get</p>
   <ul class="gets"><li>A simple daily system for bookings, staff and payments</li><li>Automatic reminders for appointments and dues</li><li>More time for customers, less time on admin</li></ul>
   
-  <a class="svc-cta" href="index.html#contact">Talk about this <span>→</span></a>
+  <a class="svc-cta" href="/#contact">Talk about this <span>→</span></a>
 </article>
 <article class="svc" data-g="design" id="s-sop">
   <div class="svc-top"><span class="svc-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 6h11M10 12h11M10 18h11M3 6l1.5 1.5L7 5M3 12l1.5 1.5L7 11M3 18l1.5 1.5L7 17"/></svg></span><span class="svc-tag mono">Design & grow</span></div>
   <div class="mini" aria-hidden="true"><div class="m-sop"><div><i></i>Open the site</div><div><i></i>Check pumps &amp; DG</div><div><i></i>Log with photo</div><div><i></i>Close the day</div></div></div>
   <h3>Operations &amp; SOP Design</h3>
+  <p class="prob-h mono">The problem</p>
   <p class="prob">Work depends on who&#x27;s on duty, and everyone does it differently.</p>
   <p class="get-h mono">What you get</p>
   <ul class="gets"><li>Clear process maps everyone can follow</li><li>Simple SOPs and checklists for your team</li><li>Training so the new way actually sticks</li></ul>
   <p class="proof"><span class="mono">Done before</span>Service handbook built for a CX team</p>
-  <a class="svc-cta" href="index.html#contact">Talk about this <span>→</span></a>
+  <a class="svc-cta" href="/#contact">Talk about this <span>→</span></a>
 </article>
 <article class="svc" data-g="design" id="s-li">
   <div class="svc-top"><span class="svc-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M8 10.5V17M8 7.2v.1M12 17v-6.5M12 13.2c0-1.6 1.1-2.7 2.5-2.7s2.5 1 2.5 2.7V17"/></svg></span><span class="svc-tag mono">Design & grow</span></div>
   <div class="mini" aria-hidden="true"><div class="m-li"><div class="ring"><b>92</b></div><div class="lines"><span>Headline</span><span>About</span><span>Experience</span></div></div></div>
-  <h3>LinkedIn Profile Revamp</h3>
+  <h3>LinkedIn Profile Makeover</h3>
+  <p class="prob-h mono">The problem</p>
   <p class="prob">Your LinkedIn profile undersells what you actually do.</p>
   <p class="get-h mono">What you get</p>
   <ul class="gets"><li>A headline and About that show your value in seconds</li><li>Experience rewritten around results, not duties</li><li>A profile that brings the right people to you</li></ul>
   
-  <a class="svc-cta" href="index.html#contact">Talk about this <span>→</span></a>
+  <a class="svc-cta" href="/#contact">Talk about this <span>→</span></a>
 </article>
 <article class="svc other" data-g="all">
   <span class="svc-ico"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12.3 2.8 2.7L16.5 9"/></svg></span>
   <h3>Something else on your mind?</h3>
   <p class="prob">If your team does it by hand every week, there's a good chance it can become a simple tool.</p>
-  <a class="btn primary magnetic" href="index.html#contact">Tell me the process <span class="arr">→</span></a>
+  <a class="btn primary magnetic" href="/#contact">Tell me the process <span class="arr">→</span></a>
 </article>
     </div>
   </div>
@@ -516,7 +528,7 @@ footer a{color:var(--muted)}
       <p class="eyebrow mono" data-r>Questions</p>
       <h2 class="split">Things people usually ask first.</h2>
     </div>
-    <div class="faq"><details class="qa"><summary>Do I need to buy new software?<span class="pl" aria-hidden="true"></span></summary><div class="ans"><p>Usually not. Most tools are built on what you already use, like Google Workspace, Zoho or WhatsApp.</p></div></details><details class="qa"><summary>Who owns the tool and the data?<span class="pl" aria-hidden="true"></span></summary><div class="ans"><p>You do. Everything is set up in your own accounts, so it stays with you.</p></div></details><details class="qa"><summary>Is my business data safe?<span class="pl" aria-hidden="true"></span></summary><div class="ans"><p>Your data stays in your systems. I only access what the task needs, and I&#x27;m happy to sign an NDA.</p></div></details><details class="qa"><summary>What if something breaks or needs a change later?<span class="pl" aria-hidden="true"></span></summary><div class="ans"><p>You get a simple guide at handover, and I stay reachable for fixes and small tweaks.</p></div></details><details class="qa"><summary>How long does it take?<span class="pl" aria-hidden="true"></span></summary><div class="ans"><p>A LinkedIn revamp takes a few days. Most tools take 1 to 4 weeks, depending on the process.</p></div></details></div>
+    <div class="faq"><details class="qa"><summary>Do I need to buy new software?<span class="pl" aria-hidden="true"></span></summary><div class="ans"><p>Usually not. I build on what you already use, like Google Workspace, Excel and WhatsApp. If you already pay for tools such as Zoho, Odoo, HubSpot, Slack, Freshdesk or Intercom, I can build on those too, so there&#x27;s nothing new to buy.</p></div></details><details class="qa"><summary>Who owns the tool and the data?<span class="pl" aria-hidden="true"></span></summary><div class="ans"><p>You do. Everything is set up in your own accounts, so it stays with you.</p></div></details><details class="qa"><summary>Is my business data safe?<span class="pl" aria-hidden="true"></span></summary><div class="ans"><p>Your data stays in your systems. I only access what the task needs, and I&#x27;m happy to sign an NDA.</p></div></details><details class="qa"><summary>What if something breaks or needs a change later?<span class="pl" aria-hidden="true"></span></summary><div class="ans"><p>You get a simple guide at handover, and I stay reachable for fixes and small tweaks.</p></div></details><details class="qa"><summary>How long does it take?<span class="pl" aria-hidden="true"></span></summary><div class="ans"><p>A LinkedIn revamp takes a few days. Most tools take 1 to 4 weeks, depending on the process.</p></div></details></div>
   </div>
 </section>
 
@@ -525,17 +537,17 @@ footer a{color:var(--muted)}
     <div class="final" data-r>
       <h2>Tell me the process. I'll tell you if it can be a tool.</h2>
       <p>A short message is enough. Describe what your team does by hand today, and we'll take it from there.</p>
-      <a class="btn magnetic" href="index.html#contact">Start the conversation <span class="arr">→</span></a>
+      <a class="btn magnetic" href="/#contact">Start the conversation <span class="arr">→</span></a>
     </div>
   </div>
 </section>
 </main>
 
 <footer>
-  <div class="wrap"><span>© 2026 Atul Naik · Business Automation Expert · <span class="sk">योगः कर्मसु कौशलम्</span></span><span><a href="index.html">Home</a> · <a href="privacy.html">Privacy policy</a></span></div>
+  <div class="wrap"><span>© 2026 Atul Naik · Business Automation Expert · <span class="sk">योगः कर्मसु कौशलम्</span></span><span><a href="/">Home</a> · <a href="privacy.html">Privacy policy</a></span></div>
 </footer>
 
-<a class="wa-fab" href="index.html#contact" aria-label="Message me" title="Message me"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2.1 7L3.2 29l6.4-1.8c2 1.1 4.2 1.6 6.4 1.6 7.2 0 13-5.7 13-12.8S23.2 3 16 3zm0 23.4c-2 0-3.9-.5-5.6-1.5l-.4-.2-3.8 1 1-3.7-.3-.4a10.4 10.4 0 0 1-1.6-5.6C5.3 10 10.1 5.3 16 5.3s10.7 4.7 10.7 10.6S21.9 26.4 16 26.4zm5.9-7.9c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7.1a8.8 8.8 0 0 1-4.4-3.8c-.3-.6.3-.5.9-1.7.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4s-1.2 1.1-1.2 2.7 1.2 3.1 1.3 3.4c.2.2 2.3 3.5 5.6 4.9 2.1.9 2.9 1 4 .8.6-.1 1.9-.8 2.2-1.5.3-.8.3-1.4.2-1.5-.1-.2-.3-.2-.6-.4z"/></svg></a>
+<a class="chat-fab" href="/#contact" aria-label="Send me a message"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12.2c0 4-3.6 7.3-8 7.3-1.2 0-2.4-.2-3.4-.7L4 20l1.2-3.7A7 7 0 0 1 4 12.2C4 8.2 7.6 5 12 5s8 3.2 8 7.2z"/><path d="M8.6 12.3h.01M12 12.3h.01M15.4 12.3h.01" stroke-width="2.6"/></svg><span class="cf-tip">Send me a message</span></a>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
