@@ -1,7 +1,7 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8">
-<title>Atul Naik · Process Automation</title>
+<title>Atul Naik · Business Automation Expert</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230F1B2D'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='28' font-weight='700' fill='%23F5A623' text-anchor='middle'%3EAN%3C/text%3E%3C/svg%3E">
-<meta property="og:title" content="Atul Naik · I turn messy business processes into simple digital tools">
+<meta property="og:title" content="Atul Naik · Business Automation Expert">
 <meta property="og:description" content="Automation, dashboards and internal tools that cut manual work and follow-ups. 8 tools running inside a real business.">
 <meta property="og:image" content="https://atulnaik.in/thumbnail.png">
 <meta property="og:image:width" content="1200">
@@ -726,6 +726,17 @@ h3{font-size:clamp(17px,1.4vw,20px)}
 @media (max-width:1100px){.dash-grid{grid-template-columns:1fr}.phones{margin-top:10px}.p2{margin-top:40px}}
 @media (max-width:700px){.dk{grid-template-columns:repeat(2,1fr)}.dp{grid-template-columns:1fr}.br-body{padding:12px;min-height:0}.donut-wrap{grid-template-columns:110px 1fr}}
 @media (max-width:380px){.phone{width:146px}.phones{gap:10px}}
+
+/* services link, page transitions */
+.see-svc{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:24px;color:var(--muted);font-size:14px}
+@view-transition{navigation:auto}
+.nav{view-transition-name:site-nav}
+@media (prefers-reduced-motion:no-preference){
+  ::view-transition-old(root){animation:vt-out .3s ease both}
+  ::view-transition-new(root){animation:vt-in .5s cubic-bezier(.2,.7,.2,1) both}
+}
+@keyframes vt-out{to{opacity:0;transform:translateY(-10px);filter:blur(4px)}}
+@keyframes vt-in{from{opacity:0;transform:translateY(18px);filter:blur(4px)}}
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
@@ -739,6 +750,7 @@ h3{font-size:clamp(17px,1.4vw,20px)}
   <div class="wrap">
     <a class="brand" href="#top" aria-label="Atul Naik, back to top"><svg class="logo" viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="lgA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#14B8A6"/><stop offset="1" stop-color="#4F46E5"/></linearGradient><linearGradient id="lgB" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7C6CF6"/><stop offset="1" stop-color="#0E9C83"/></linearGradient></defs><g fill="url(#lgA)" stroke="#fff" stroke-width="1.1" stroke-linejoin="round"><path d="M20 29C13 27.5 6 23.5 3.5 16.5C11 16 17 21 20 29Z" opacity=".5"/><path d="M20 29C27 27.5 34 23.5 36.5 16.5C29 16 23 21 20 29Z" opacity=".5"/><path d="M20 29C14 24.5 10.5 16.5 12.5 9C18 12.5 21 20.5 20 29Z" opacity=".78"/><path d="M20 29C26 24.5 29.5 16.5 27.5 9C22 12.5 19 20.5 20 29Z" opacity=".78"/><path d="M20 29C15.8 23 15.8 12 20 4.5C24.2 12 24.2 23 20 29Z" fill="url(#lgB)"/></g><path d="M8.5 33.2Q20 37.6 31.5 33.2" fill="none" stroke="url(#lgA)" stroke-width="2" stroke-linecap="round"/></svg><span class="brand-name">Atul Naik</span><span class="shloka" aria-hidden="true"><b>योगः कर्मसु कौशलम्</b><span>Yoga is excellence in action · Bhagavad Gita 2.50</span><span>The lotus: clarity that rises out of the mud.</span></span></a>
     <nav class="navlinks" aria-label="Main">
+      <a href="services.html">Services</a>
       <a href="#work" data-nav="work">Work</a>
       <a href="#approach" data-nav="approach">Approach</a>
       <a href="#about" data-nav="about">About</a>
@@ -747,6 +759,7 @@ h3{font-size:clamp(17px,1.4vw,20px)}
     </nav>
   </div>
   <div class="m-menu" id="mMenu" hidden>
+    <a href="services.html">Services</a>
     <a href="#work" data-nav="work">Work</a>
     <a href="#approach" data-nav="approach">Approach</a>
     <a href="#about" data-nav="about">About</a>
@@ -761,7 +774,7 @@ h3{font-size:clamp(17px,1.4vw,20px)}
   <div class="orb a" data-speed="-0.2" aria-hidden="true"></div>
   <div class="orb b" data-speed="0.25" aria-hidden="true"></div>
   <div class="wrap">
-    <p class="eyebrow mono hero-in">Operations × Automation × AI × Business Intelligence</p>
+    <p class="eyebrow mono hero-in">Business Automation Expert · Operations × AI × BI</p>
     <h1 style="margin-top:26px">
       <span class="l"><span>I turn <em class="w-mess">messy</em></span></span>
       <span class="l"><span>business processes</span></span>
@@ -830,6 +843,7 @@ h3{font-size:clamp(17px,1.4vw,20px)}
       </div>
     </div>
     <div class="cats" id="cats"></div>
+    <div class="see-svc" data-r><a class="btn primary magnetic" href="services.html">See all services <span class="arr">→</span></a><span>WhatsApp automation, AI receptionist, CRM setup and more</span></div>
   </div>
 </section>
 
@@ -1116,7 +1130,7 @@ h3{font-size:clamp(17px,1.4vw,20px)}
 </main>
 
 <footer>
-  <div class="wrap"><span>© 2026 Atul Naik · Operations × Automation · <span class="sk">योगः कर्मसु कौशलम्</span> <span style="color:var(--dim)">(excellence in action)</span></span><span>This site follows the same rule as the tools: understand, simplify, build. · <a href="privacy.html">Privacy policy</a></span></div>
+  <div class="wrap"><span>© 2026 Atul Naik · Business Automation Expert · <span class="sk">योगः कर्मसु कौशलम्</span> <span style="color:var(--dim)">(excellence in action)</span></span><span>This site follows the same rule as the tools: understand, simplify, build. · <a href="privacy.html">Privacy policy</a></span></div>
 </footer>
 
 <div class="modal" id="modal" hidden role="dialog" aria-modal="true" aria-labelledby="mTitle">
@@ -1754,4 +1768,5 @@ if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>ST.refresh
 })();
 </script>
 
+<script>addEventListener("load",function(){if(location.hash&&location.hash.length>1){var t=document.getElementById(location.hash.slice(1));if(t)setTimeout(function(){t.scrollIntoView({block:"start"});},450);}});</script>
 </body></html>
