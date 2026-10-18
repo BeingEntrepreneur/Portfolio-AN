@@ -1,3 +1,5 @@
+/** @OnlyCurrentDoc */
+
 /**
  * atulnaik.in forms → Google Sheet + email notification.
  *   Contact form (index.html)          → "Responses" tab
@@ -16,6 +18,8 @@ const LIMITS = { name: 120, company: 160, process: 1000, today: 1000, goal: 1000
 
 const PRIVACY_SHEET = "Privacy requests";
 const PRIVACY_HEADERS = ["Received at", "Email", "Request", "Details", "Status"];
+const MAX_PER_10_MIN = 20; // spam guard: protects the daily Gmail sending limit
+
 const PRIVACY_TYPES = ["See my data", "Correct my data", "Delete my data", "Withdraw consent", "Other question"];
 
 function doPost(e) {
@@ -24,6 +28,7 @@ function doPost(e) {
 
     // Honeypot: real visitors never see or fill this field.
     if (d.website) return json({ ok: true });
+    if (tooMany_()) return json({ ok: false, error: "busy" });
     if (d.form === "privacy") return privacy_(d);
 
     const f = {};
@@ -44,7 +49,7 @@ function doPost(e) {
     MailApp.sendEmail({
       to: NOTIFY_EMAIL,
       replyTo: f.email,
-      subject: "New enquiry from " + f.name + (f.company ? " (" + f.company + ")" : ""),
+      subject: oneLine_("New enquiry from " + f.name + (f.company ? " (" + f.company + ")" : "")),
       body:
         "New message from the atulnaik.in contact form\n\n" +
         "Name: " + f.name + "\n" +
@@ -89,7 +94,7 @@ function privacy_(d) {
   MailApp.sendEmail({
     to: NOTIFY_EMAIL,
     replyTo: email,
-    subject: "Privacy request: " + request,
+    subject: oneLine_("Privacy request: " + request),
     body:
       "New privacy request from the atulnaik.in privacy page\n\n" +
       "Email: " + email + "\n" +
@@ -112,6 +117,20 @@ function sheet_(name, headers) {
     sh.setFrozenRows(1);
   }
   return sh;
+}
+
+// Simple rate limit across all visitors (not per person): at most MAX_PER_10_MIN submissions per 10 minutes.
+function tooMany_() {
+  const cache = CacheService.getScriptCache();
+  const key = "n" + Math.floor(Date.now() / 600000);
+  const n = Number(cache.get(key) || 0) + 1;
+  cache.put(key, String(n), 900);
+  return n > MAX_PER_10_MIN;
+}
+
+// Email subjects must stay on one line.
+function oneLine_(s) {
+  return String(s).replace(/[\r\n]+/g, " ").slice(0, 200);
 }
 
 // Stop text like "=HYPERLINK(...)" being run as a formula in the sheet.
